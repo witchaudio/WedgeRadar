@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idea Machine</title>
+    <meta
+      name="description"
+      content="Fresh SEO, ASO, and SaaS ideas generated from live trend signals and Groq."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Signal-fed startup finder</p>
+            <a class="brand" href="/">Idea Machine</a>
+          </div>
+          <div class="stamp">
+            <span class="stamp-label">Fresh batch</span>
+            <strong id="generatedDate">Loading…</strong>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="hero-kicker">Google + X + Reddit + Hacker News + GitHub</p>
+            <h1>Daily SEO, ASO, and SaaS ideas with a normal-to-crazy slider.</h1>
+            <p class="hero-body">
+              The site pulls live trend signals, mixes them with Groq, and turns them into
+              startup concepts you can scan in a minute.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-button" id="refreshButton" type="button">
+                Refresh today’s batch
+              </button>
+              <div class="status-row">
+                <span class="mini-chip" id="signalCountChip">0 live signals</span>
+                <span class="mini-chip" id="sourceCountChip">0 sources</span>
+                <span class="mini-chip" id="modelChip">Checking model</span>
+              </div>
+            </div>
+          </section>
+
+          <aside class="control-card" aria-labelledby="sliderTitle">
+            <div class="control-head">
+              <div>
+                <p class="eyebrow">Idea dial</p>
+                <h2 id="sliderTitle">How wild should the ideas feel?</h2>
+              </div>
+              <div class="mode-chip" id="modeChip">Normal</div>
+            </div>
+
+            <label class="slider-label" for="intensityRange">Normal on the left, crazy on the right.</label>
+            <input
+              class="intensity-range"
+              id="intensityRange"
+              type="range"
+              min="0"
+              max="100"
+              value="18"
+            />
+            <div class="range-scale" aria-hidden="true">
+              <span>Normal</span>
+              <span>Crazy</span>
+            </div>
+            <p class="mode-copy" id="modeCopy">
+              Practical ideas that still feel current and sharp.
+            </p>
+
+            <div class="category-group" role="tablist" aria-label="Idea categories">
+              <button class="category-pill is-active" type="button" data-category="all" aria-pressed="true">
+                All
+              </button>
+              <button class="category-pill" type="button" data-category="seo" aria-pressed="false">
+                SEO
+              </button>
+              <button class="category-pill" type="button" data-category="aso" aria-pressed="false">
+                ASO
+              </button>
+              <button class="category-pill" type="button" data-category="saas" aria-pressed="false">
+                SaaS
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <section class="ideas-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Today’s board</p>
+              <h2 id="sectionTitle">Top trending ideas</h2>
+            </div>
+            <p class="section-note" id="feedbackMessage" aria-live="polite">
+              Pulling fresh ideas now…
+            </p>
+          </div>
+
+          <div class="ideas-grid" id="ideasGrid" aria-live="polite"></div>
+        </section>
+
+        <aside class="side-column">
+          <section class="info-card">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Signal radar</p>
+                <h2>What the app is reading</h2>
+              </div>
+            </div>
+            <div class="headline-list" id="headlineList"></div>
+          </section>
+
+          <section class="info-card">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Flow</p>
+                <h2>How the site works</h2>
+              </div>
+            </div>
+            <ul class="plain-list">
+              <li>Live trend signals are pulled from several public sources.</li>
+              <li>Groq turns those signals into product ideas for the chosen category.</li>
+              <li>The slider shifts the ideas from practical to strange.</li>
+              <li>The app stores one fresh batch per day until you force a refresh.</li>
+            </ul>
+          </section>
+
+          <section class="info-card">
+            <div class="section-head compact">
+              <div>
+                <p class="eyebrow">Source notes</p>
+                <h2>Availability</h2>
+              </div>
+            </div>
+            <div class="availability-list" id="availabilityList"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

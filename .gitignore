@@ -1,0 +1,6 @@
+.env
+.env.local
+.cache
+.netlify
+node_modules
+dist
