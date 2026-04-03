@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Live trend-driven SEO, ASO, and SaaS idea generator powered by Groq.",
   "dependencies": {
-    "@netlify/blobs": "^10.7.4"
+    "@netlify/blobs": "^10.7.4",
+    "@vercel/analytics": "^2.0.1"
   },
   "devDependencies": {
     "netlify-cli": "^24.6.1"
