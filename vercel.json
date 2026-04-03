@@ -1,0 +1,7 @@
+{
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/api/ideas", "destination": "/api/ideas.mjs" },
+    { "source": "/api/vote", "destination": "/api/vote.mjs" }
+  ]
+}
