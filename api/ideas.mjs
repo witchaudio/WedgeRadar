@@ -5,7 +5,7 @@ export default async function handler(req) {
     return jsonResponse({ error: "Use GET for ideas." }, 405);
   }
 
-  const requestUrl = new URL(req.url);
+  const requestUrl = new URL(req.url, "http://localhost");
   const payload = await getIdeasPayload({
     category: requestUrl.searchParams.get("category"),
     intensity: requestUrl.searchParams.get("intensity"),
