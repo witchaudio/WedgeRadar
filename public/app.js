@@ -155,7 +155,7 @@ function renderIdeas(ideas) {
   ideas.forEach((idea, index) => {
     const card = document.createElement("article");
     card.className = "idea-card";
-    card.style.setProperty("--rotation", `${index % 2 === 0 ? "-1.2deg" : "1.3deg"}`);
+    // no rotation in brutalist style
 
     const cardTop = document.createElement("div");
     cardTop.className = "idea-top";
@@ -171,9 +171,19 @@ function renderIdeas(ideas) {
 
     const score = document.createElement("span");
     score.className = "score-pill";
-    score.textContent = `${idea.trendScore}/100`;
+    if (idea.trendScore >= 80) {
+      score.classList.add("is-high");
+    }
+    score.textContent = `${idea.trendScore}`;
 
-    cardTop.append(sourceRow, score);
+    const scoreWrap = document.createElement("div");
+    scoreWrap.className = "score-wrap";
+    const scoreLabel = document.createElement("span");
+    scoreLabel.className = "score-label";
+    scoreLabel.textContent = "signal";
+    scoreWrap.append(score, scoreLabel);
+
+    cardTop.append(sourceRow, scoreWrap);
 
     const title = document.createElement("h3");
     title.textContent = idea.title;
